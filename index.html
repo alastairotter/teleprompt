@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TelePrompt</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="lib/vue.js"></script>
+    <script src="lib/modernizr.js"></script>
+</head>
+<body>
+
+    
+       
+<div class="controls">
+ 
+  
+   <div class="inner-controls">
+   <div class="help"><i class="fa fa-question-circle-o" aria-hidden="true"></i>
+</div>
+  
+  <div class="tips">
+    <div class="keys">P</div> &nbsp; <div class="command">Play/Pause</div> <br />
+    <div class="keys">[</div> &nbsp; &nbsp;<div class="command">Slow Down</div> <br />
+    <div class="keys">]</div> &nbsp; &nbsp;<div class="command">Speed Up</div> <br />
+       <div class="keys">+</div> &nbsp; <div class="command">Increase Font</div> <br />
+       <div class="keys">-</div> &nbsp; &nbsp;<div class="command">Decrease Font</div> <br />
+       <div class="keys">R</div> &nbsp; &nbsp;<div class="command">Restart</div> <br />
+       
+       </div>
+   
+   
+    <div class="speed">Speed: 
+        <div class="inner-speed">0</div>
+    </div>
+     <i class="fa fa-play inactive" aria-hidden="true"></i>
+      <i class="fa fa-pause inactive" aria-hidden="true"></i>
+<!--      <i class="fa fa-stop" aria-hidden="true"></i>-->
+      
+       
+   </div>
+    
+    
+</div>
+
+<div id="result"></div>
+
+<div id="myApp">
+<div class="tele tele-inactive" contenteditable="true">{{ content }}</div>
+<!--  <div contenteditable="true" class="text-input"></div>  -->
+<!--    <textarea class="text-input" v-model="content"></textarea>-->
+
+    
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+
+    
+
+    
+    
+    
+    
+    
+
+    
+
+
+</body>
+</html>
