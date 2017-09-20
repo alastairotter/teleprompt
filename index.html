@@ -14,10 +14,13 @@
 
   <div class="menu">
      
-     <i class="fa fa-plus-circle new" aria-hidden="true"></i>
+     <i class="fa fa-plus-circle new" aria-hidden="true"></i> &nbsp; <i class="fa fa-pencil-square-o edit" aria-hidden="true"></i>
 
       
-  </div>  
+  </div> 
+      
+       
+
        
 <div class="controls">
  
@@ -42,7 +45,7 @@
        Speed: 
         <div class="inner-speed">0</div>
     </div>
-     <i class="fa fa-play" aria-hidden="true"></i>
+     <i class="fa fa-play inactive" aria-hidden="true"></i>
       <i class="fa fa-pause inactive" aria-hidden="true"></i>
 <!--      <i class="fa fa-stop" aria-hidden="true"></i>-->
       
@@ -54,11 +57,18 @@
 
 
 <div id="myApp">
-<textarea class="tele tele-inactive" v-model="content">{{ content }}</textarea>
-<!--<div class="tele tele-inactive" v-model="content" contenteditable="true">{{ content }}</div>-->
+<div class="editbox">
+   <textarea class="text-input" v-model="content">{{ content }}</textarea>
+   <div class="done">
+       <div class="done-inner">
+           Done
+       </div></div>
+    
+</div> 
+<div class="tele tele-inactive" >{{ content }}</div>
 
 
-<!--  <div id="result">{{ content }}</div>  -->
+
 </div>
 
 

@@ -42,7 +42,7 @@ var w = window.innerWidth;
     var pause = true;
 //    var text = false; 
 
-    $(".text-input").css("margin-left", window.innerWidth / 2 - 400 + "px")
+    $(".editbox").css("margin-left", window.innerWidth / 2 - 400 + "px")
     
     $(".inner-speed").text(increment)
     
@@ -94,7 +94,7 @@ var w = window.innerWidth;
                 clearInterval(interval);
                 pause = true; 
                 y = startY;
-                $(".tele").animate({"top": startY}, 2000);
+                $(".tele").animate({"top": startY}, 1000);
                 $(".fa-pause").removeClass("inactive").addClass("active"); 
                 $(".fa-play").removeClass("active").addClass("inactive"); 
             }
@@ -146,15 +146,20 @@ var w = window.innerWidth;
     
 
     
+// script editing
     
-// script input
-    $(".tele").click( function () { 
-        if(start === true) { 
-            $(".tele").text("");
-            start = false;
-        }
-    })
+$(".edit").click( function () { 
+    $(".editbox").fadeIn("slow");
+    $(".tele").fadeOut("slow");
+    $(".controls").addClass("blur");
+    
+});
+    
+    
 
+    
+// save information
+    
 setInterval( function () { 
     
     if(start === false) { 
@@ -179,16 +184,16 @@ $('.tele').focus( function () {
 // new script
 $(".new").click( function () { 
     clearInterval(interval);
-    $(".tele").animate({"top": startY}, 2000);
+//    $(".tele").animate({"top": startY}, 1000);
     y = startY;
     myApp.content = "Click here to add a script ...";
     fontSize = 40; 
     increment = 3; 
     updateSpeed();
     updateFont();
-//    start = true;
+    start = true;
     $(".fa-play").addClass("inactive").removeClass("active");
-    $(".fa-pause").addClass("active").removeClass("inactive");
+    $(".fa-pause").addClass("inactive").removeClass("active");
     pause = true;
     
     

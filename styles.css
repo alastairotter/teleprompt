@@ -21,14 +21,85 @@
             color: #fff;
             border: none;
             resize: none;
-            height: 20000px;
+/*            height: 20000px;*/
             font-size: 40px;
+/*            max-height: 100px;*/
             
         }
 
+.blur { 
+    -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+
+.editbox { 
+    position: fixed; 
+    top: 30px;
+    width: 800px;
+    height: 400px;
+    background: #000;
+    border: solid 1px gray;
+    z-index: 500;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 20px;
+    display: none;
+    padding: 10px;
+    height: 80vh;
+/*    opacity: 0;*/
+    
+    }
+
+textarea:focus {
+    outline: 0;
+    
+
+}
+
+.text-input { 
+    width: 730px; 
+    height: 330px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-size: 18px; 
+    white-space: pre-wrap; 
+    padding:30px;
+    height: 60vh;
+}
+
+.done { 
+    width: 100%; 
+    margin-top: 30px;
+    text-align: center;
+
+}
+.done-inner { 
+    padding: 5px 10px;
+    color: #000;
+  
+    border-radius: 10px;
+    background: #fff;
+    display: inline;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 80%;
+    width: 500px;
+    height: 100px;
+    
+}
+.done-inner:hover { 
+    cursor: pointer;
+    cursor: hand;
+    background: lime;
+}
 .menu { 
     color: #BBBBBB;
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 20px;
     margin-top: 10px;
     
@@ -37,9 +108,15 @@
 .new:hover {
     cursor: pointer;
     cursor: hand;
+    color: #fff;
 
 }
 
+.edit:hover { 
+    cursor: pointer;
+    cursor: hand;
+    color: #fff;
+}
 
 
         
@@ -85,8 +162,8 @@
         
         .inner-speed, .inner-font { 
             display: inline; 
-            color: #fff;
-            background: crimson;
+            color: lime;
+            background: none;
             padding: 5px 10px;
             border-radius: 5px;
         }
