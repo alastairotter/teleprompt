@@ -94,7 +94,7 @@ var w = window.innerWidth;
                 clearInterval(interval);
                 pause = true; 
                 y = startY;
-                $(".tele").animate({"top": startY}, 1000);
+                $(".tele").animate({"top": startY}, 300);
                 $(".fa-pause").removeClass("inactive").addClass("active"); 
                 $(".fa-play").removeClass("active").addClass("inactive"); 
             }
@@ -154,6 +154,13 @@ $(".edit").click( function () {
     $(".controls").addClass("blur");
     
 });
+
+$(".done-inner").click( function () { 
+    $(".editbox").fadeOut("slow");
+    $(".tele").fadeIn("slow");
+    $(".controls").removeClass("blur")
+    
+})
     
     
 
