@@ -1,31 +1,46 @@
- var w = window.innerWidth; 
+var start, fontSize, interval, prevInc, script, increment, fontSize;
+
+var updateSpeed = function () { 
+        $(".inner-speed").text(increment);
+    }
+var updateFont = function () { 
+    $(".inner-font").text(fontSize);
+    $(".tele").css("font-size", fontSize);
+}
+
+
+var w = window.innerWidth; 
     var tWidth = $(".tele").width(); 
-//    console.log(tWidth);
+
     $(".tele").css("margin-left", (w - tWidth) / 2 + "px");
     
     
-    if(localStorage.tpScript) { 
-        var start = false;
-        var script = localStorage.tpScript;
+    if(localStorage.teleScript) { 
+        start = false;
+        script = localStorage.teleScript;
+        increment = +localStorage.teleIncrement; 
+        fontSize = +localStorage.teleFont;
+
+        
+        
     }
     else { 
-        var start = true;
-        var script = "Click here to add script ...";
+        start = true;
+        script = "Click here to add script ...";
+        increment = 3; 
+        fontSize = 40;
+            
     }
 
-    var start = true;
+
+    updateSpeed(); 
+    updateFont();
+
+
+    var editing = false; 
     var speed = 100;
-    var increment = 3;
     var pause = true;
-    var prevInc;
-    if(start === true) { 
-        var fontSize = 16; 
-    }
-    else { 
-        var fontSize = 40;
-        }
-    var interval; 
-    var text = false; 
+//    var text = false; 
 
     $(".text-input").css("margin-left", window.innerWidth / 2 - 400 + "px")
     
@@ -39,49 +54,51 @@
    function play () {  
     
     interval = setInterval( function () { 
-//        $(".tele").css("top", y);
+
         $(".tele").animate({"top": y}, speed)
         y -= increment; 
-//        console.log(speed);
+
     }, speed)
                      
         }
     
     
-    var updateSpeed = function () { 
-        $(".inner-speed").text(increment);
-    }
+    
     
     
     $(document).on("keypress", function (e) {
-//        console.log(e);
-        if(e.which === 93) { increment = increment + 1; updateSpeed();  } // speed
-        if(e.which === 91) { increment = increment - 1; updateSpeed(); } // speed
-        if(e.which === 112 && pause == false) {  // pause
-            clearInterval(interval);  
-            pause = true; 
-            $(".fa-pause").removeClass("inactive").addClass("active"); 
-            $(".fa-play").removeClass("active").addClass("inactive"); }
         
-        else if (e.which === 112 && pause == true) { // play
-            play();  
-            pause = false;  
-            $(".fa-play").removeClass("inactive").addClass("active"); 
-            $(".fa-pause").removeClass("active").addClass("inactive");
-                                                   }
-        
-        // fonts
-        if(e.which === 61) { fontSize += 1; $(".tele").css("font-size", fontSize)}
-        if(e.which === 45) { fontSize -= 1; $(".tele").css("font-size", fontSize)}
-        
-        // restart
-        if(e.which === 114) { 
-            clearInterval(interval);
-            pause = true; 
-            y = startY;
-            $(".tele").animate({"top": startY}, 2000);
-            $(".fa-pause").removeClass("inactive").addClass("active"); 
-            $(".fa-play").removeClass("active").addClass("inactive"); 
+        if(editing === false) { 
+
+            if(e.which === 93) { increment = +increment + 1; updateSpeed();  } // speed
+            if(e.which === 91) { increment = +increment - 1; updateSpeed(); } // speed
+            if(e.which === 112 && pause == false) {  // pause
+                clearInterval(interval);  
+                pause = true; 
+                $(".fa-pause").removeClass("inactive").addClass("active"); 
+                $(".fa-play").removeClass("active").addClass("inactive"); }
+
+            else if (e.which === 112 && pause == true) { // play
+                play();  
+                pause = false;  
+                $(".fa-play").removeClass("inactive").addClass("active"); 
+                $(".fa-pause").removeClass("active").addClass("inactive");
+                                                       }
+
+            // fonts
+            if(e.which === 61) { fontSize += 1; updateFont(); $(".tele").css("font-size", fontSize)}
+            if(e.which === 45) { fontSize -= 1; updateFont(); $(".tele").css("font-size", fontSize)}
+
+            // restart
+            if(e.which === 114) { 
+                clearInterval(interval);
+                pause = true; 
+                y = startY;
+                $(".tele").animate({"top": startY}, 2000);
+                $(".fa-pause").removeClass("inactive").addClass("active"); 
+                $(".fa-play").removeClass("active").addClass("inactive"); 
+            }
+            
         }
         
        
@@ -112,7 +129,7 @@
     var myApp = new Vue({ 
         el: "#myApp",
         data: { 
-            content: ""
+            content: script
             
         },
         methods: {
@@ -133,30 +150,53 @@
 // script input
     $(".tele").click( function () { 
         if(start === true) { 
-            $(".tele").text("").removeClass("tele-inactive").css("font-size", "40px");
+            $(".tele").text("");
             start = false;
         }
     })
-    
-    
 
-
-
-
-
-
-// save
 setInterval( function () { 
     
-  myApp.saveScript();
+    if(start === false) { 
+        localStorage.teleScript = myApp.content;
+        localStorage.teleFont = fontSize; 
+        localStorage.teleIncrement = increment;
+    }
     
-}, 1000);
 
-// Store
+    
+}, 1000)
+    
+// disable control keys when editing
 
-//var stored = true; 
-//if(stored === true) { 
-//localStorage.lastname = "Alastair Otter";
-//}
-// Retrieve
-//document.getElementById("result").innerHTML = localStorage.lastname;
+$('.tele').focus( function () {
+   editing = true; 
+}).blur( function () { 
+    editing = false;   
+})
+
+
+// new script
+$(".new").click( function () { 
+    clearInterval(interval);
+    $(".tele").animate({"top": startY}, 2000);
+    y = startY;
+    myApp.content = "Click here to add a script ...";
+    fontSize = 40; 
+    increment = 3; 
+    updateSpeed();
+    updateFont();
+//    start = true;
+    $(".fa-play").addClass("inactive").removeClass("active");
+    $(".fa-pause").addClass("active").removeClass("inactive");
+    pause = true;
+    
+    
+    
+    
+})
+
+
+
+
+

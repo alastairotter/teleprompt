@@ -12,7 +12,12 @@
 </head>
 <body>
 
-    
+  <div class="menu">
+     
+     <i class="fa fa-plus-circle new" aria-hidden="true"></i>
+
+      
+  </div>  
        
 <div class="controls">
  
@@ -32,10 +37,12 @@
        </div>
    
    
-    <div class="speed">Speed: 
+    <div class="speed">
+       Font: <div class="inner-font">40</div> &nbsp; 
+       Speed: 
         <div class="inner-speed">0</div>
     </div>
-     <i class="fa fa-play inactive" aria-hidden="true"></i>
+     <i class="fa fa-play" aria-hidden="true"></i>
       <i class="fa fa-pause inactive" aria-hidden="true"></i>
 <!--      <i class="fa fa-stop" aria-hidden="true"></i>-->
       
@@ -45,21 +52,22 @@
     
 </div>
 
-<div id="result"></div>
 
 <div id="myApp">
-<div class="tele tele-inactive" contenteditable="true">{{ content }}</div>
-<!--  <div contenteditable="true" class="text-input"></div>  -->
-<!--    <textarea class="text-input" v-model="content"></textarea>-->
+<textarea class="tele tele-inactive" v-model="content">{{ content }}</textarea>
+<!--<div class="tele tele-inactive" v-model="content" contenteditable="true">{{ content }}</div>-->
 
-    
+
+<!--  <div id="result">{{ content }}</div>  -->
 </div>
 
 
 
 <script src="script.js"></script>
 
-
+<script> 
+    console.log(localStorage);
+    </script>
 
     
 
