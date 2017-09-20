@@ -195,6 +195,8 @@ textarea:focus {
     left: 60px;
     bottom: 80px;
 }
+
+
    
 .keys { 
      float: left;
@@ -245,20 +247,6 @@ float: left;
     cursor: hand;
 }
 
-.edit:hover + .tips2 { 
-    opacity: 0.8;
-    transition: opacity 1s;
-    color: #fff;
-}
 
 
-
-
-#result { 
-    position: fixed; 
-    z-index: 1000;
-    top: 20px;
-    left: 20px;
-    background: #fff;
-}
 

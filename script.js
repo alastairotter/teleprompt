@@ -152,13 +152,15 @@ $(".edit").click( function () {
     $(".editbox").fadeIn("slow");
     $(".tele").fadeOut("slow");
     $(".controls").addClass("blur");
+    editing = true;
     
 });
 
 $(".done-inner").click( function () { 
     $(".editbox").fadeOut("slow");
     $(".tele").fadeIn("slow");
-    $(".controls").removeClass("blur")
+    $(".controls").removeClass("blur");
+    editing = false;
     
 })
     
@@ -188,25 +190,6 @@ $('.tele').focus( function () {
 })
 
 
-// new script
-$(".new").click( function () { 
-    clearInterval(interval);
-//    $(".tele").animate({"top": startY}, 1000);
-    y = startY;
-    myApp.content = "Click here to add a script ...";
-    fontSize = 40; 
-    increment = 3; 
-    updateSpeed();
-    updateFont();
-    start = true;
-    $(".fa-play").addClass("inactive").removeClass("active");
-    $(".fa-pause").addClass("inactive").removeClass("active");
-    pause = true;
-    
-    
-    
-    
-})
 
 
 
