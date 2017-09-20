@@ -8,7 +8,7 @@
     <script src="lib/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="lib/vue.js"></script>
-    <script src="lib/modernizr.js"></script>
+   
 </head>
 <body>
 
@@ -24,16 +24,18 @@
    <div class="menu">
    <i class="fa fa-question-circle-o help" aria-hidden="true"></i> 
    <div class="tips">
-    <div class="keys">P</div> &nbsp; <div class="command">Play/Pause</div> <br />
-    <div class="keys">[</div> &nbsp; &nbsp;<div class="command">Slow Down</div> <br />
-    <div class="keys">]</div> &nbsp; &nbsp;<div class="command">Speed Up</div> <br />
-       <div class="keys">+</div> &nbsp; <div class="command">Increase Font</div> <br />
-       <div class="keys">-</div> &nbsp; &nbsp;<div class="command">Decrease Font</div> <br />
-       <div class="keys">R</div> &nbsp; &nbsp;<div class="command">Restart</div> <br />
+   <div class="keys"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div><div class="command">Edit script</div><br />
+    <div class="keys">P</div><div class="command">Play/Pause</div> <br />
+    <div class="keys">[</div><div class="command">Slow Down</div> <br />
+    <div class="keys">]</div><div class="command">Speed Up</div> <br />
+       <div class="keys">+</div><div class="command">Increase Font</div> <br />
+       <div class="keys">-</div><div class="command">Decrease Font</div> <br />
+       <div class="keys">R</div><div class="command">Restart</div> <br />
        
        </div>
        &nbsp; 
    <i class="fa fa-pencil-square-o edit" aria-hidden="true"></i>
+   <div class="tips2">Edit script</div>
    
 </div>
   
@@ -47,7 +49,7 @@
     </div>
      <i class="fa fa-play inactive" aria-hidden="true"></i>
       <i class="fa fa-pause inactive" aria-hidden="true"></i>
-<!--      <i class="fa fa-stop" aria-hidden="true"></i>-->
+
       
        
    </div>
@@ -75,9 +77,7 @@
 
 <script src="script.js"></script>
 
-<script> 
-    console.log(localStorage);
-    </script>
+
 
     
 

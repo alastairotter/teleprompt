@@ -167,7 +167,7 @@ textarea:focus {
             border-radius: 5px;
         }
 
-.tips { 
+.tips, .tips2 { 
     position: absolute;
     bottom: 90px;
     left: 20px;
@@ -176,34 +176,43 @@ textarea:focus {
     color: gray;
     float: left;
 /*    margin-left: 20px;*/
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     text-transform: none;
 /*    opacity: 0.5;*/
     text-align: left;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     line-height: 180%;
-    padding: 20px 40px; 
+    padding: 20px 20px; 
 /*    border: solid 1px gray;*/
-    background: #282828;
+    background: #000;
     opacity: 0;
     transition: opacity 1s;
     
 }
+
+.tips2 { 
+    left: 60px;
+    bottom: 80px;
+}
    
 .keys { 
-     
-    display: inline;
+     float: left;
+/*    display: inline;*/
 /*    background: gray;*/
     padding: 2px 5px;;
     color: springgreen;
     border-radius: 3px;
     font-weight: 700;
+    width: 50px;
+    text-align: center;
    
 }
 
 .command { 
-    display: inline;
+float: left;
+    padding: 2px 5px;
+    
     
 }
 
@@ -217,12 +226,27 @@ textarea:focus {
 }
 
 .help:hover { 
-    color: #fff;
+    color: springgreen;
     opacity: 1;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .help:hover + .tips { 
-    opacity: 0.9;
+    opacity: 0.8;
+    transition: opacity 1s;
+    color: #fff;
+}
+
+.edit:hover { 
+    color: springgreen;
+    opacity: 1;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.edit:hover + .tips2 { 
+    opacity: 0.8;
     transition: opacity 1s;
     color: #fff;
 }
