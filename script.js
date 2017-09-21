@@ -1,5 +1,9 @@
 var start, fontSize, interval, prevInc, script, increment, fontSize;
 
+var defaultFontSize = 40,
+    defaultIncrement = 3, 
+    defaultScript = "Your new script";
+
 var updateSpeed = function () { 
         $(".inner-speed").text(increment);
     }
@@ -7,6 +11,10 @@ var updateFont = function () {
     $(".inner-font").text(fontSize);
     $(".tele").css("font-size", fontSize);
 }
+
+console.log("-----------");
+console.log(localStorage);
+console.log("-----------");
 
 
 var w = window.innerWidth; 
@@ -94,7 +102,7 @@ var w = window.innerWidth;
                 clearInterval(interval);
                 pause = true; 
                 y = startY;
-                $(".tele").animate({"top": startY}, 300);
+                $(".tele").animate({"top": startY}, 200);
                 $(".fa-pause").removeClass("inactive").addClass("active"); 
                 $(".fa-play").removeClass("active").addClass("inactive"); 
             }
@@ -156,6 +164,15 @@ $(".edit").click( function () {
     
 });
 
+$(".tele").click( function () { 
+    $(".editbox").fadeIn("slow");
+    $(".tele").fadeOut("slow");
+    $(".controls").addClass("blur");
+    editing = true;
+    
+});
+
+
 $(".done-inner").click( function () { 
     $(".editbox").fadeOut("slow");
     $(".tele").fadeIn("slow");
@@ -180,14 +197,29 @@ setInterval( function () {
 
     
 }, 1000)
+
+
+// clear localStorage
+$(".trash").click( function () { 
+
+    localStorage.teleFont= defaultFontSize;
+    localStorage.teleIncrement= defaultIncrement;
+    localStorage.teleScript = defaultScript;
+    setTimeout( function () { 
+        updateSpeed();
+        updateFont();
+    }, 200);
+    console.log(localStorage)
+    
+})
     
 // disable control keys when editing
-
-$('.tele').focus( function () {
-   editing = true; 
-}).blur( function () { 
-    editing = false;   
-})
+//
+//$('.tele').focus( function () {
+//   editing = true; 
+//}).blur( function () { 
+//    editing = false;   
+//})
 
 
 

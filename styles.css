@@ -247,6 +247,13 @@ float: left;
     cursor: hand;
 }
 
+.trash:hover { 
+    color: springgreen;
+    opacity: 1;
+    cursor: pointer;
+    cursor: hand;
+}
+
 
 
 
