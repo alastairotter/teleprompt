@@ -77,6 +77,8 @@ var w = window.innerWidth;
     $(document).on("keypress", function (e) {
         
         if(editing === false) { 
+            
+            console.log(e);
 
             if(e.which === 93) { increment = +increment + 1; updateSpeed();  } // speed
             if(e.which === 91) { increment = +increment - 1; updateSpeed(); } // speed
@@ -103,6 +105,16 @@ var w = window.innerWidth;
                 pause = true; 
                 y = startY;
                 $(".tele").animate({"top": startY}, 200);
+                $(".fa-pause").removeClass("inactive").addClass("active"); 
+                $(".fa-play").removeClass("active").addClass("inactive"); 
+            }
+            
+            if(e.which === 111) {
+                console.log(y);
+                clearInterval(interval);
+                pause = true;
+                y = y + 10; 
+                $(".tele").animate({"top": y}, 40);
                 $(".fa-pause").removeClass("inactive").addClass("active"); 
                 $(".fa-play").removeClass("active").addClass("inactive"); 
             }
