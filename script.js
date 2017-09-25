@@ -2,7 +2,8 @@ var start, fontSize, interval, prevInc, script, increment, fontSize;
 
 var defaultFontSize = 40,
     defaultIncrement = 3, 
-    defaultScript = "Your new script";
+    defaultScript = "Your new script", 
+    allCaps = false; 
 
 var updateSpeed = function () { 
         $(".inner-speed").text(increment);
@@ -76,7 +77,7 @@ var w = window.innerWidth;
         
         if(editing === false) { 
             
-            console.log(e);
+//            console.log(e);
 
             if(e.which === 93) { increment = +increment + 1; updateSpeed();  } // speed
             if(e.which === 91) { increment = +increment - 1; updateSpeed(); } // speed
@@ -115,6 +116,22 @@ var w = window.innerWidth;
                 $(".tele").animate({"top": y}, 40);
                 $(".fa-pause").removeClass("inactive").addClass("active"); 
                 $(".fa-play").removeClass("active").addClass("inactive"); 
+            }
+            
+            if(e.which === 107) {
+                
+                if(!allCaps) { 
+                    // save
+                    $(".tele").addClass("uppercase");
+                    allCaps = true; 
+                }
+                else { 
+                    $(".tele").removeClass("uppercase");
+                    allCaps = false; 
+                    }
+                
+                
+                
             }
             
         }
