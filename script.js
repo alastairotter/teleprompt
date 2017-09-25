@@ -12,9 +12,7 @@ var updateFont = function () {
     $(".tele").css("font-size", fontSize);
 }
 
-console.log("-----------");
-console.log(localStorage);
-console.log("-----------");
+
 
 
 var w = window.innerWidth; 
@@ -34,7 +32,7 @@ var w = window.innerWidth;
     }
     else { 
         start = true;
-        script = "Click here to add script ...";
+        script = "Click here to add script ...\nKeyboard commands in the help menu below";
         increment = 3; 
         fontSize = 40;
             
